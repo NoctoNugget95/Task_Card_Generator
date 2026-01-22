@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- UNIVERSAL VIEWPORT INTEGRITY -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KAS Math Task Card Generator</title>
 
@@ -11,14 +10,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <!-- HTML2Canvas for "Snapshot" Copying -->
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&family=Comic+Neue:wght@700&display=swap');
         
         :root {
-            /* EXACT 1/4 PAGE DIMENSIONS */
             --card-width: 4in;
             --card-height: 5in;
         }
@@ -30,7 +27,6 @@
             overscroll-behavior-y: none;
         }
 
-        /* FIXED DIMENSION LAYOUT */
         .card-container-flex {
             display: flex;
             flex-wrap: wrap;
@@ -40,7 +36,6 @@
             width: 100%;
         }
 
-        /* THE CARD ITSELF */
         .task-card {
             width: var(--card-width);
             height: var(--card-height);
@@ -56,25 +51,20 @@
             transition: transform 0.2s;
         }
 
-        /* --- BACKGROUND DECORATION PATTERNS (Non-AI) --- */
+        /* Patterns */
         .bg-pattern-grid {
-            background-image: 
-                linear-gradient(#e5e7eb 1px, transparent 1px),
-                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
             background-size: 20px 20px;
         }
-        
         .bg-pattern-lined {
             background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
             background-size: 100% 2em;
-            background-position: 0 1.5em; /* Offset for header */
+            background-position: 0 1.5em;
         }
-
         .bg-pattern-dots {
             background-image: radial-gradient(#d1d5db 2px, transparent 2px);
             background-size: 20px 20px;
         }
-
         .bg-pattern-geo {
             background-color: #ffffff;
             opacity: 1;
@@ -88,50 +78,22 @@
             box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
         }
 
-        /* Utility for copying */
         .copy-feedback {
-            position: absolute;
-            inset: 0;
-            background: rgba(255,255,255,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #10b981;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            z-index: 50;
+            position: absolute; inset: 0; background: rgba(255,255,255,0.9);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; color: #10b981; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s; z-index: 50;
         }
         .copy-feedback.show { opacity: 1; }
 
-        /* PRINT STYLES */
         @media print {
             @page { margin: 0.25in; size: letter portrait; }
             body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; overflow: visible !important; }
             .no-print, #sidebarOverlay, .copy-btn { display: none !important; }
-            
-            .card-container-flex { 
-                display: grid !important; 
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                gap: 0.25in;
-                height: 100vh;
-                margin: 0; padding: 0;
-                width: auto;
-            }
-
-            .task-card {
-                border: 2px solid #000;
-                box-shadow: none !important;
-                width: 100%; 
-                height: 4.75in !important; 
-                break-inside: avoid;
-                page-break-inside: avoid; margin: 0;
-            }
+            .card-container-flex { display: grid !important; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.25in; height: 100vh; margin: 0; padding: 0; width: auto; }
+            .task-card { border: 2px solid #000; box-shadow: none !important; width: 100%; height: 4.75in !important; break-inside: avoid; page-break-inside: avoid; margin: 0; }
             main { overflow: visible !important; }
         }
-
         .katex { font-size: 1.1em; }
     </style>
 </head>
@@ -171,7 +133,6 @@
             </div>
 
             <div class="p-6 space-y-8 overflow-y-auto flex-1">
-                <!-- Standard Selector -->
                 <div class="space-y-4">
                     <label class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-indigo-500"></span> 1. Select Standard
@@ -191,13 +152,11 @@
                     </select>
                 </div>
 
-                <!-- Appearance -->
                 <div class="space-y-4">
                     <label class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-pink-500"></span> 2. Appearance
                     </label>
                     
-                    <!-- Color -->
                     <div>
                         <span class="text-[10px] text-gray-500 font-bold uppercase mb-2 block">Color Theme</span>
                         <div class="flex gap-4">
@@ -208,7 +167,6 @@
                         </div>
                     </div>
 
-                    <!-- Decoration (New) -->
                     <div>
                         <span class="text-[10px] text-gray-500 font-bold uppercase mb-2 block">Decoration</span>
                         <div class="flex gap-2 flex-wrap">
@@ -221,7 +179,6 @@
                     </div>
                 </div>
 
-                <!-- Quantity -->
                 <div class="space-y-4">
                     <label class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-blue-500"></span> 3. Quantity
@@ -251,10 +208,11 @@
         </section>
     </div>
 
+    <!-- SETTINGS MODAL (Fixed Logic) -->
     <div id="settingsModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden items-center justify-center z-50 transition-opacity opacity-0 no-print px-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 transform scale-95 transition-transform">
             <h3 class="text-lg font-bold text-gray-800 mb-4">API Configuration</h3>
-            <p class="text-xs text-gray-500 mb-4">Your key is stored locally on this device.</p>
+            <p class="text-xs text-gray-500 mb-4">Your key is stored securely in your browser.</p>
             <input type="password" id="apiKeyInput" placeholder="AIzaSy..." class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-sm mb-6 outline-none focus:border-indigo-500">
             <div class="flex justify-end gap-3">
                 <button onclick="App.ui.toggleSettings()" class="px-5 py-2.5 text-gray-500 hover:bg-gray-100 rounded-lg text-sm font-medium">Cancel</button>
@@ -270,7 +228,10 @@
                 selectedStandard: null,
                 theme: 'indigo',
                 pattern: 'none',
+                // ROBUST KEY LOGIC: Check localStorage immediately
                 apiKey: localStorage.getItem('kas_gemini_key') || '',
+                // OPTIONAL: Uncomment below to hard-code your key if deploying privately
+                // apiKey: "AIzaSy...", 
                 model: 'gemini-2.5-flash' 
             },
 
@@ -283,6 +244,17 @@
 
             init: async () => {
                 document.getElementById('modelLabel').textContent = `Powered by ${App.state.model}`;
+                
+                // Initialize Key - Silent Check
+                if (App.state.apiKey) {
+                    console.log("API Key loaded from storage.");
+                } else {
+                    console.log("No API Key found.");
+                    // Only open settings if absolutely necessary user action triggers it, 
+                    // OR if you want to prompt on first load:
+                    // setTimeout(() => App.ui.toggleSettings(), 1000); 
+                }
+
                 try {
                     const response = await fetch('./standards.json');
                     if(response.ok) {
@@ -294,6 +266,12 @@
                 } catch (e) {
                     console.error("Load error:", e);
                 }
+                
+                // Pre-populate input but don't force modal
+                if (document.getElementById('apiKeyInput')) {
+                    document.getElementById('apiKeyInput').value = App.state.apiKey;
+                }
+                
                 App.ui.populateSettings();
             },
 
@@ -317,17 +295,20 @@
                     if (key) {
                         localStorage.setItem('kas_gemini_key', key);
                         App.state.apiKey = key;
-                        App.ui.toggleSettings();
+                        // Close modal immediately
+                        const modal = document.getElementById('settingsModal');
+                        modal.classList.add('opacity-0');
+                        setTimeout(() => modal.classList.add('hidden'), 300);
+                        alert("Key saved! You can now generate cards.");
                     }
                 },
 
                 copyCard: (btn) => {
                     const card = btn.closest('article');
-                    // Hide buttons temporarily during snapshot
                     card.querySelectorAll('button').forEach(b => b.style.opacity = '0');
                     
                     html2canvas(card, {
-                        scale: 2, // High resolution
+                        scale: 2, 
                         backgroundColor: '#ffffff'
                     }).then(canvas => {
                         card.querySelectorAll('button').forEach(b => b.style.opacity = '1');
@@ -338,7 +319,7 @@
                                 feedback.classList.add('show');
                                 setTimeout(() => feedback.classList.remove('show'), 1500);
                             })
-                            .catch(err => alert("Could not copy. Browser may block clipboard access."));
+                            .catch(err => alert("Clipboard access blocked. Check browser permissions."));
                         });
                     });
                 },
@@ -352,7 +333,13 @@
                     if (count > 32) count = 32; 
                     countInput.value = count;
 
-                    if (!stdId || !App.state.apiKey) return App.ui.toggleSettings();
+                    // STRICT CHECK: Triggers modal ONLY if key is missing when user clicks GENERATE
+                    if (!stdId) return alert("Please select a standard.");
+                    if (!App.state.apiKey) {
+                        App.ui.toggleSettings();
+                        return;
+                    }
+
                     if (window.innerWidth < 768) App.ui.toggleSidebar();
 
                     const standard = App.state.standards.find(s => s.id === stdId);
@@ -448,9 +435,17 @@
                         if (btn.dataset.theme === theme) btn.classList.add('active');
                         else btn.classList.remove('active');
                     });
-                    // Re-render required to update existing cards
+                    // Refresh existing
                     const cards = document.querySelectorAll('.task-card');
-                    if (cards.length > 0) App.logic.generateCards(); // Or simpler redraw if data stored
+                    if(cards.length > 0) {
+                        const t = App.themes[theme];
+                        cards.forEach(card => {
+                            card.style.borderColor = `var(--${theme}-600)`;
+                            card.className = card.className.replace(/border-t-4 [\w-]+/, `border-t-4 ${t.border}`);
+                            const answer = card.querySelector('.group-hover\\:opacity-100');
+                            if(answer) answer.className = `opacity-0 group-hover:opacity-100 group-active:opacity-100 font-bold ${t.text}`;
+                        });
+                    }
                 },
 
                 setPattern: (pattern) => {
@@ -459,9 +454,7 @@
                         if (btn.dataset.pattern === pattern) btn.classList.add('active', 'text-indigo-600', 'bg-indigo-50', 'border-indigo-200');
                         else btn.classList.remove('active', 'text-indigo-600', 'bg-indigo-50', 'border-indigo-200');
                     });
-                    // Apply to existing cards immediately
                     document.querySelectorAll('.task-card').forEach(card => {
-                        // Remove all pattern classes first
                         card.classList.remove('bg-pattern-grid', 'bg-pattern-lined', 'bg-pattern-dots', 'bg-pattern-geo');
                         if (pattern !== 'none') card.classList.add(pattern);
                     });
