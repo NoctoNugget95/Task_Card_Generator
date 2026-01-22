@@ -1,0 +1,1263 @@
+{
+  "metadata": {
+    "state": "Kentucky",
+    "subject": "Mathematics",
+    "grades": ["K", "1", "2", "3", "4", "5", "6"],
+    "source": "KAS Math K-6.pdf"
+  },
+  "standards": [
+    {
+      "id": "KY.K.CC.1",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Count to 100 by ones and by tens.",
+      "prompt_guide": "Create a counting sequence task. Ask the student to count by ones or tens up to 100."
+    },
+    {
+      "id": "KY.K.CC.2",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Count forward beginning from a given number within the known sequence within 100 (instead of having to begin at 1).",
+      "prompt_guide": "Provide a starting number between 1 and 90. Ask the student to count forward the next 5 numbers."
+    },
+    {
+      "id": "KY.K.CC.3",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Represent numbers. Write numbers from 0 to 20. Represent a number of objects with a written numeral 0-20.",
+      "prompt_guide": "Show a set of objects (like stars or apples) between 0 and 20. Ask the student to write the number that represents the count."
+    },
+    {
+      "id": "KY.K.CC.4",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Understand the relationship between numbers and quantities; connect counting to cardinality.",
+      "prompt_guide": "Create a task where the student must match a number to a specific quantity of items."
+    },
+    {
+      "id": "KY.K.CC.5",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Given a number from 1-20, count out that many objects.",
+      "prompt_guide": "Give the student a number (e.g., 7) and ask them to draw or circle that many items."
+    },
+    {
+      "id": "KY.K.CC.6",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Identify whether the number of objects in one group is greater than, less than, or equal to the number of objects in another group.",
+      "prompt_guide": "Show two groups of objects with different counts. Ask which group has more, less, or if they are equal."
+    },
+    {
+      "id": "KY.K.CC.7",
+      "grade": "K",
+      "domain": "Counting and Cardinality",
+      "description": "Compare two numbers between 1 and 10 presented as written numerals.",
+      "prompt_guide": "Provide two written numbers (e.g., 3 and 8). Ask the student to identify which is greater."
+    },
+    {
+      "id": "KY.K.OA.1",
+      "grade": "K",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Represent addition and subtraction with objects, fingers, mental images, drawings, sounds, acting out situations, verbal explanations, expressions, or equations.",
+      "prompt_guide": "Create a simple story problem that can be solved by drawing a picture of addition or subtraction."
+    },
+    {
+      "id": "KY.K.OA.2",
+      "grade": "K",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Solve addition and subtraction word problems and add and subtract within 10 by using objects or drawings to represent the problem.",
+      "prompt_guide": "Write a word problem using animals or toys involving simple addition or subtraction within 10."
+    },
+    {
+      "id": "KY.K.OA.3",
+      "grade": "K",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Decompose numbers less than or equal to 10 into pairs in more than one way by using objects or drawings and record each decomposition by a drawing or equation.",
+      "prompt_guide": "Ask the student to find two different ways to make a number like 6 (e.g., 5+1, 3+3)."
+    },
+    {
+      "id": "KY.K.OA.4",
+      "grade": "K",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "For any number from 1 to 9, find the number that makes 10 when added to the given number by using objects or drawings and record the answer with a drawing or equation.",
+      "prompt_guide": "Provide a number like 4. Ask the student what number must be added to it to make 10."
+    },
+    {
+      "id": "KY.K.OA.5",
+      "grade": "K",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Fluently add and subtract within 5.",
+      "prompt_guide": "Create rapid-fire addition or subtraction problems using numbers 0-5."
+    },
+    {
+      "id": "KY.K.NBT.1",
+      "grade": "K",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Compose and decompose numbers from 11 to 19 using quantities (numbers with units) of ten ones and some further ones.",
+      "prompt_guide": "Ask the student to show how a number like 14 is made of one ten and four ones."
+    },
+    {
+      "id": "KY.K.MD.1",
+      "grade": "K",
+      "domain": "Measurement and Data",
+      "description": "Describe measurable attributes (length, height, weight, width, depth) of an object or a set of objects using appropriate vocabulary.",
+      "prompt_guide": "Show an object (like a pencil) and ask the student to describe its length or weight using comparison words."
+    },
+    {
+      "id": "KY.K.MD.2",
+      "grade": "K",
+      "domain": "Measurement and Data",
+      "description": "Directly compare two objects with a measurable attribute in common, to see which object has 'more of'/'less of' the attribute and describe the difference.",
+      "prompt_guide": "Compare two items (e.g., a crayon and a marker). Ask which is longer or shorter."
+    },
+    {
+      "id": "KY.K.MD.3",
+      "grade": "K",
+      "domain": "Measurement and Data",
+      "description": "Classify and sort objects or people by attributes.",
+      "prompt_guide": "Provide a list of shapes or items. Ask the student to sort them into groups (e.g., by color or size)."
+    },
+    {
+      "id": "KY.K.MD.4",
+      "grade": "K",
+      "domain": "Measurement and Data",
+      "description": "Recognize and identify coins by name (penny, nickel, dime, quarter).",
+      "prompt_guide": "Show images of coins. Ask the student to name them."
+    },
+    {
+      "id": "KY.K.G.1",
+      "grade": "K",
+      "domain": "Geometry",
+      "description": "Name and describe shapes in the environment.",
+      "prompt_guide": "Ask the student to find an object in the room (or an image) that looks like a circle, square, or triangle."
+    },
+    {
+      "id": "KY.K.G.2",
+      "grade": "K",
+      "domain": "Geometry",
+      "description": "Correctly name shapes regardless of orientations or overall size.",
+      "prompt_guide": "Show shapes turned in different directions. Ask the student to identify them."
+    },
+    {
+      "id": "KY.K.G.3",
+      "grade": "K",
+      "domain": "Geometry",
+      "description": "Identify shapes as two-dimensional or three-dimensional.",
+      "prompt_guide": "Show a flat square and a cube. Ask the student to identify which is flat (2D) and which is solid (3D)."
+    },
+    {
+      "id": "KY.K.G.4",
+      "grade": "K",
+      "domain": "Geometry",
+      "description": "Describe the similarities, differences and attributes of two and three dimensional shapes using different sizes and orientations.",
+      "prompt_guide": "Ask the student to explain how a square is different from a rectangle or a cube."
+    },
+    {
+      "id": "KY.K.G.5",
+      "grade": "K",
+      "domain": "Geometry",
+      "description": "Model shapes in the world by building figures from components and drawing shapes.",
+      "prompt_guide": "Ask the student to draw a house using simple shapes like squares and triangles."
+    },
+    {
+      "id": "KY.K.G.6",
+      "grade": "K",
+      "domain": "Geometry",
+      "description": "Compose simple shapes to form larger shapes.",
+      "prompt_guide": "Ask the student to show how two triangles can make a square."
+    },
+    {
+      "id": "KY.1.OA.1",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Use addition and subtraction within 20 to solve word problems involving situations of adding to, taking from, putting together, taking apart and comparing.",
+      "prompt_guide": "Create a word problem involving counting toys or snacks where the total is less than 20."
+    },
+    {
+      "id": "KY.1.OA.2",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Solve word problems that call for addition of three whole numbers whose sum is less than or equal to 20.",
+      "prompt_guide": "Create a problem adding three numbers, like 3 + 4 + 2."
+    },
+    {
+      "id": "KY.1.OA.3",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Apply properties of operations as strategies to add and subtract.",
+      "prompt_guide": "Create a problem showing that 8 + 3 is the same as 3 + 8 (commutative property)."
+    },
+    {
+      "id": "KY.1.OA.4",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Understand subtraction as an unknown-addend problem.",
+      "prompt_guide": "Ask the student to solve 10 - 8 by finding what number added to 8 makes 10."
+    },
+    {
+      "id": "KY.1.OA.5",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Relate counting to addition and subtraction.",
+      "prompt_guide": "Create a task that uses counting on (e.g., start at 5 and count up 2) to solve addition."
+    },
+    {
+      "id": "KY.1.OA.6",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Add and subtract within 20.",
+      "prompt_guide": "Provide straightforward addition and subtraction problems with sums up to 20."
+    },
+    {
+      "id": "KY.1.OA.7",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Understand the meaning of the equal sign and determine if equations involving addition and subtraction are true or false.",
+      "prompt_guide": "Ask if an equation like 6 = 6 or 7 = 8 - 1 is true or false."
+    },
+    {
+      "id": "KY.1.OA.8",
+      "grade": "1",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Determine the unknown whole number in an addition or subtraction equation relating three whole numbers.",
+      "prompt_guide": "Create a problem with a missing number, like 8 + ? = 11."
+    },
+    {
+      "id": "KY.1.NBT.1",
+      "grade": "1",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Count forward to and backward from 120, starting at any number less than 120.",
+      "prompt_guide": "Ask the student to count starting from a number like 98 up to 105."
+    },
+    {
+      "id": "KY.1.NBT.2",
+      "grade": "1",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Understand that the two digits of a two-digit number represent amounts of tens and ones.",
+      "prompt_guide": "Ask the student to identify how many tens and ones are in the number 34."
+    },
+    {
+      "id": "KY.1.NBT.3",
+      "grade": "1",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Compare two two-digit numbers based on meanings of the tens and ones digits, using >, =, and < symbols.",
+      "prompt_guide": "Ask the student to compare 34 and 43 using <, >, or =."
+    },
+    {
+      "id": "KY.1.NBT.4",
+      "grade": "1",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Add within 100 including adding a two-digit number and a one-digit number, and adding a two-digit number and a multiple of 10.",
+      "prompt_guide": "Create a problem adding a two digit number (e.g., 45) and a one digit number (e.g., 4) or a ten (e.g., 10)."
+    },
+    {
+      "id": "KY.1.NBT.5",
+      "grade": "1",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Given a two-digit number, mentally find 10 more or 10 less than the number.",
+      "prompt_guide": "Ask the student what is 10 more than 23 without counting."
+    },
+    {
+      "id": "KY.1.NBT.6",
+      "grade": "1",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Subtract multiples of 10 in the range 10-90 from multiples of 10 in the range 10-90.",
+      "prompt_guide": "Create a problem like 70 - 30."
+    },
+    {
+      "id": "KY.1.MD.1",
+      "grade": "1",
+      "domain": "Measurement and Data",
+      "description": "Order three objects by length; compare the lengths of two objects indirectly by using a third object.",
+      "prompt_guide": "Ask the student to order three drawn lines from shortest to longest."
+    },
+    {
+      "id": "KY.1.MD.2",
+      "grade": "1",
+      "domain": "Measurement and Data",
+      "description": "Express the length of an object as a whole number of same-size length units.",
+      "prompt_guide": "Show an object and a unit (like a paperclip) and ask how many units long the object is."
+    },
+    {
+      "id": "KY.1.MD.3",
+      "grade": "1",
+      "domain": "Measurement and Data",
+      "description": "Assign values to time and money; tell and write time in hours and half-hours; identify coins by values.",
+      "prompt_guide": "Show a clock face at 3:30 or ask the value of a dime."
+    },
+    {
+      "id": "KY.1.MD.4",
+      "grade": "1",
+      "domain": "Measurement and Data",
+      "description": "Investigate questions involving categorical data (pose questions, gather data, organize/represent data in a table/chart).",
+      "prompt_guide": "Provide a simple chart of favorite colors and ask a question about the data."
+    },
+    {
+      "id": "KY.1.G.1",
+      "grade": "1",
+      "domain": "Geometry",
+      "description": "Distinguish between defining attributes versus non-defining attributes; build and draw shapes to possess defining attributes.",
+      "prompt_guide": "Ask the student to identify a triangle based on its number of sides, regardless of its color."
+    },
+    {
+      "id": "KY.1.G.2",
+      "grade": "1",
+      "domain": "Geometry",
+      "description": "Compose two-dimensional shapes or three-dimensional shapes to create a composite shape.",
+      "prompt_guide": "Ask the student to combine two squares to make a rectangle."
+    },
+    {
+      "id": "KY.1.G.3",
+      "grade": "1",
+      "domain": "Geometry",
+      "description": "Partition circles and rectangles into two and four equal shares, describe the shares using halves, fourths and quarters.",
+      "prompt_guide": "Ask the student to divide a circle into halves or fourths."
+    },
+    {
+      "id": "KY.2.OA.1",
+      "grade": "2",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Use addition and subtraction within 100 to solve one- and two-step word problems.",
+      "prompt_guide": "Create a two-step word problem involving addition and subtraction with numbers up to 100."
+    },
+    {
+      "id": "KY.2.OA.2",
+      "grade": "2",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Fluently add and subtract within 20 using mental strategies.",
+      "prompt_guide": "Create a mental math problem for addition or subtraction within 20."
+    },
+    {
+      "id": "KY.2.OA.3",
+      "grade": "2",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Determine whether a group of objects (up to 20) has an odd or even number of members.",
+      "prompt_guide": "Provide a number (e.g., 14) and ask if it is odd or even."
+    },
+    {
+      "id": "KY.2.OA.4",
+      "grade": "2",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Use addition to find the total number of objects arranged in rectangular arrays with up to 5 rows and up to 5 columns.",
+      "prompt_guide": "Show a 3x4 array of dots and ask the student to write an addition equation to find the total."
+    },
+    {
+      "id": "KY.2.NBT.1",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Understand that the three digits of a three-digit number represent amounts of hundreds, tens and ones.",
+      "prompt_guide": "Ask the student to break down 706 into hundreds, tens, and ones."
+    },
+    {
+      "id": "KY.2.NBT.2",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Count forwards and backwards within 1000; skip-count by 5s, 10s and 100s.",
+      "prompt_guide": "Ask the student to count by 10s starting from 150."
+    },
+    {
+      "id": "KY.2.NBT.3",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Read and write numbers to 1000 using base-ten numerals, number names and expanded form.",
+      "prompt_guide": "Ask the student to write 453 in expanded form (400 + 50 + 3)."
+    },
+    {
+      "id": "KY.2.NBT.4",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Compare two three-digit numbers based on meanings of the hundreds, tens and ones digits, using >, =, and < symbols.",
+      "prompt_guide": "Ask the student to compare 567 and 576."
+    },
+    {
+      "id": "KY.2.NBT.5",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Fluently add and subtract within 100 using strategies based on place value.",
+      "prompt_guide": "Create an addition problem like 45 + 38 requiring regrouping."
+    },
+    {
+      "id": "KY.2.NBT.6",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Add up to four two-digit numbers using strategies based on place value.",
+      "prompt_guide": "Create a column addition problem with four numbers: 23 + 15 + 44 + 12."
+    },
+    {
+      "id": "KY.2.NBT.7",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Add and subtract within 1000 using concrete models, drawings, and strategies based on place value.",
+      "prompt_guide": "Create a large addition or subtraction problem, such as 450 + 275."
+    },
+    {
+      "id": "KY.2.NBT.8",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Mentally add 10 or 100 to a given number 100-900 and mentally subtract 10 or 100.",
+      "prompt_guide": "Ask the student what is 100 less than 845."
+    },
+    {
+      "id": "KY.2.NBT.9",
+      "grade": "2",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Explain why addition and subtraction strategies work, using place value and the properties of operations.",
+      "prompt_guide": "Ask the student to explain how they solved 24 + 36."
+    },
+    {
+      "id": "KY.2.MD.1",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Measure the length of an object by selecting and using appropriate tool(s) to measure.",
+      "prompt_guide": "Ask the student which tool (ruler, yardstick) they would use to measure a pencil vs a table."
+    },
+    {
+      "id": "KY.2.MD.2",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Measure the length of an object twice, using length units of different lengths for the two measurements.",
+      "prompt_guide": "Ask how a measurement changes if you use inches versus centimeters."
+    },
+    {
+      "id": "KY.2.MD.3",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Estimate lengths using units of inches, feet, yards, centimeters and meters.",
+      "prompt_guide": "Ask the student to estimate the length of a desk in feet."
+    },
+    {
+      "id": "KY.2.MD.4",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Measure to determine how much longer one object is than another.",
+      "prompt_guide": "Ask the student to find the difference in length between two lines."
+    },
+    {
+      "id": "KY.2.MD.5",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Use addition and subtraction within 100 to solve word problems involving lengths.",
+      "prompt_guide": "Create a word problem about adding two lengths together."
+    },
+    {
+      "id": "KY.2.MD.6",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Represent whole numbers as lengths from 0 on a number line.",
+      "prompt_guide": "Ask the student to mark the number 55 on a number line that goes from 0 to 100."
+    },
+    {
+      "id": "KY.2.MD.7",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Tell and write time from analog and digital clocks to the nearest five minutes, using a.m. and p.m.",
+      "prompt_guide": "Show a clock face and ask the student to write the time, including AM or PM context."
+    },
+    {
+      "id": "KY.2.MD.8",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Solve word problems with adding and subtracting within 100 using money symbols.",
+      "prompt_guide": "Create a money problem involving dollars and cents."
+    },
+    {
+      "id": "KY.2.MD.9",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Investigate questions involving measurements (generate data, and show measurements by making a dot plot).",
+      "prompt_guide": "Provide a set of data points and ask the student to plot them on a line."
+    },
+    {
+      "id": "KY.2.MD.10",
+      "grade": "2",
+      "domain": "Measurement and Data",
+      "description": "Create a pictograph and a bar graph to represent a data set with up to four categories.",
+      "prompt_guide": "Provide data about favorite pets and ask the student to interpret a bar graph."
+    },
+    {
+      "id": "KY.2.G.1",
+      "grade": "2",
+      "domain": "Geometry",
+      "description": "Recognize and draw shapes having specified attributes, such as a given number of angles or sides.",
+      "prompt_guide": "Ask the student to draw a hexagon and count its sides."
+    },
+    {
+      "id": "KY.2.G.2",
+      "grade": "2",
+      "domain": "Geometry",
+      "description": "Partition a rectangle into rows and columns of same-size squares and count to find the total number of them.",
+      "prompt_guide": "Ask the student to calculate the area of a rectangle by counting grid squares."
+    },
+    {
+      "id": "KY.2.G.3",
+      "grade": "2",
+      "domain": "Geometry",
+      "description": "Partition circles and rectangles into two, three, or four equal shares.",
+      "prompt_guide": "Ask the student to divide a circle into thirds."
+    },
+    {
+      "id": "KY.3.OA.1",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Interpret and demonstrate products of whole numbers.",
+      "prompt_guide": "Ask the student to draw a picture representing 3 groups of 5 objects (3 x 5)."
+    },
+    {
+      "id": "KY.3.OA.2",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Interpret and demonstrate whole-number quotients of whole numbers.",
+      "prompt_guide": "Create a division problem sharing 12 cookies among 4 friends."
+    },
+    {
+      "id": "KY.3.OA.3",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Use multiplication and division within 100 to solve word problems.",
+      "prompt_guide": "Create a word problem involving multiplication or division."
+    },
+    {
+      "id": "KY.3.OA.4",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Determine the unknown whole number in a multiplication or division equation.",
+      "prompt_guide": "Solve for x: 4 x ? = 20."
+    },
+    {
+      "id": "KY.3.OA.5",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Apply properties of operations as strategies to multiply and divide.",
+      "prompt_guide": "Show how 2 x 4 x 5 can be easier if you multiply 2 x 5 first."
+    },
+    {
+      "id": "KY.3.OA.6",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Understand division as an unknown-factor problem.",
+      "prompt_guide": "Explain how 20 / 5 is the same as finding what times 5 equals 20."
+    },
+    {
+      "id": "KY.3.OA.7",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Fluently multiply and divide within 100.",
+      "prompt_guide": "Rapid fire multiplication facts (e.g., 7 x 8)."
+    },
+    {
+      "id": "KY.3.OA.8",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Use various strategies to solve two-step word problems using the four operations.",
+      "prompt_guide": "Create a two-step problem involving addition and multiplication."
+    },
+    {
+      "id": "KY.3.OA.9",
+      "grade": "3",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Identify arithmetic patterns and explain them using properties of operations.",
+      "prompt_guide": "Ask why multiples of 2 are always even."
+    },
+    {
+      "id": "KY.3.NBT.1",
+      "grade": "3",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Use place value understanding to round whole numbers to the nearest 10 or 100.",
+      "prompt_guide": "Round 346 to the nearest 10."
+    },
+    {
+      "id": "KY.3.NBT.2",
+      "grade": "3",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Fluently add and subtract within 1000.",
+      "prompt_guide": "Add 455 and 367."
+    },
+    {
+      "id": "KY.3.NBT.3",
+      "grade": "3",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Multiply one-digit whole numbers by multiples of 10 in the range of 10-90.",
+      "prompt_guide": "Solve 5 x 40."
+    },
+    {
+      "id": "KY.3.NF.1",
+      "grade": "3",
+      "domain": "Number and Operations-Fractions",
+      "description": "Understand a fraction 1/b as the quantity formed by 1 part when a whole is partitioned into b equal parts.",
+      "prompt_guide": "Draw a shape divided into equal parts and ask what fraction one part represents."
+    },
+    {
+      "id": "KY.3.NF.2",
+      "grade": "3",
+      "domain": "Number and Operations-Fractions",
+      "description": "Understand a fraction as a number on the number line; represent fractions on a number line.",
+      "prompt_guide": "Mark 1/3 on a number line from 0 to 1."
+    },
+    {
+      "id": "KY.3.NF.3",
+      "grade": "3",
+      "domain": "Number and Operations-Fractions",
+      "description": "Explain equivalence of fractions in special cases and compare by reasoning about their size.",
+      "prompt_guide": "Are 1/2 and 2/4 equivalent? Explain why with a drawing."
+    },
+    {
+      "id": "KY.3.MD.1",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Tell and write time to the nearest minute and measure elapsed time intervals in minutes.",
+      "prompt_guide": "If a movie starts at 3:15 and lasts 30 minutes, when does it end?"
+    },
+    {
+      "id": "KY.3.MD.2",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Measure and solve problems involving mass and liquid volume.",
+      "prompt_guide": "Word problem involving liters or grams."
+    },
+    {
+      "id": "KY.3.MD.3",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Investigate questions involving categorical data (create scaled pictograph and scaled bar graph).",
+      "prompt_guide": "Interpret a bar graph where one square equals 5 votes."
+    },
+    {
+      "id": "KY.3.MD.4",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Investigate questions involving numerical data (generate measurement data by measuring lengths using rulers).",
+      "prompt_guide": "Measure lines to the nearest quarter inch."
+    },
+    {
+      "id": "KY.3.MD.5",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Recognize area as an attribute of plane figures and understand concepts of area measurement.",
+      "prompt_guide": "What is area? How do we measure it?"
+    },
+    {
+      "id": "KY.3.MD.6",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Measure areas by counting unit squares.",
+      "prompt_guide": "Find the area of a shape on a grid by counting the boxes."
+    },
+    {
+      "id": "KY.3.MD.7",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Relate area to the operations of multiplication and addition.",
+      "prompt_guide": "Find the area of a rectangle with length 4 and width 3 using multiplication."
+    },
+    {
+      "id": "KY.3.MD.8",
+      "grade": "3",
+      "domain": "Measurement and Data",
+      "description": "Solve real world and mathematical problems involving perimeters of polygons.",
+      "prompt_guide": "Calculate the perimeter of a garden."
+    },
+    {
+      "id": "KY.3.G.1",
+      "grade": "3",
+      "domain": "Geometry",
+      "description": "Classify polygons by attributes.",
+      "prompt_guide": "Is a square a rectangle? Explain why."
+    },
+    {
+      "id": "KY.3.G.2",
+      "grade": "3",
+      "domain": "Geometry",
+      "description": "Partition shapes into parts with equal areas. Express the area of each part as a unit fraction of the whole.",
+      "prompt_guide": "Divide a shape into 4 equal parts and name the fraction for one part."
+    },
+    {
+      "id": "KY.4.OA.1",
+      "grade": "4",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Interpret a multiplication equation as a comparison.",
+      "prompt_guide": "Write an equation for: 35 is 5 times as many as 7."
+    },
+    {
+      "id": "KY.4.OA.2",
+      "grade": "4",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Multiply or divide to solve word problems involving multiplicative comparisons.",
+      "prompt_guide": "A blue hat costs $6. A red hat costs 3 times as much. How much is the red hat?"
+    },
+    {
+      "id": "KY.4.OA.3",
+      "grade": "4",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Solve multistep word problems posed with whole numbers and having whole number answers using the four operations, including problems with remainders.",
+      "prompt_guide": "Create a multi-step word problem involving division with a remainder."
+    },
+    {
+      "id": "KY.4.OA.4",
+      "grade": "4",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Find factors and multiples of numbers in the range 1-100.",
+      "prompt_guide": "Find all factors of 24."
+    },
+    {
+      "id": "KY.4.OA.5",
+      "grade": "4",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Generate a number or shape pattern that follows a given rule.",
+      "prompt_guide": "Start at 3 and add 5. What are the next 3 numbers?"
+    },
+    {
+      "id": "KY.4.NBT.1",
+      "grade": "4",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Recognize in a multi-digit whole number, a digit in one place represents ten times what it represents in the place to its right.",
+      "prompt_guide": "How does the value of 5 compare in 500 versus 50?"
+    },
+    {
+      "id": "KY.4.NBT.2",
+      "grade": "4",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Represent and compare multi-digit whole numbers.",
+      "prompt_guide": "Write 40,302 in expanded form."
+    },
+    {
+      "id": "KY.4.NBT.3",
+      "grade": "4",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Use place value understanding to round multi-digit whole numbers to any place.",
+      "prompt_guide": "Round 145,230 to the nearest thousand."
+    },
+    {
+      "id": "KY.4.NBT.4",
+      "grade": "4",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Fluently add and subtract multi-digit whole numbers using an algorithm.",
+      "prompt_guide": "Add 34,231 + 12,589."
+    },
+    {
+      "id": "KY.4.NBT.5",
+      "grade": "4",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Multiply whole numbers (up to four digit number by a one-digit number and two-digit number by two-digit number).",
+      "prompt_guide": "Multiply 34 x 26."
+    },
+    {
+      "id": "KY.4.NBT.6",
+      "grade": "4",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Divide up to four-digit dividends by one-digit divisors.",
+      "prompt_guide": "Divide 3450 by 5."
+    },
+    {
+      "id": "KY.4.NF.1",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Understand and generate equivalent fractions.",
+      "prompt_guide": "Find two equivalent fractions for 2/3."
+    },
+    {
+      "id": "KY.4.NF.2",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Compare two fractions with different numerators and different denominators.",
+      "prompt_guide": "Compare 3/4 and 5/8."
+    },
+    {
+      "id": "KY.4.NF.3",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Understand a fraction a/b with a > 1 as a sum of fractions 1/b.",
+      "prompt_guide": "Decompose 3/4 into a sum of unit fractions."
+    },
+    {
+      "id": "KY.4.NF.4",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Apply and extend previous understandings of multiplication to multiply a fraction by a whole number.",
+      "prompt_guide": "Calculate 5 x 1/3."
+    },
+    {
+      "id": "KY.4.NF.5",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Convert and add fractions with denominators of 10 and 100.",
+      "prompt_guide": "Add 3/10 + 4/100."
+    },
+    {
+      "id": "KY.4.NF.6",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Use decimal notation for fractions with denominators 10 or 100.",
+      "prompt_guide": "Write 0.45 as a fraction."
+    },
+    {
+      "id": "KY.4.NF.7",
+      "grade": "4",
+      "domain": "Number and Operations-Fractions",
+      "description": "Compare two decimals to hundredths.",
+      "prompt_guide": "Compare 0.5 and 0.05."
+    },
+    {
+      "id": "KY.4.MD.1",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Know relative size of measurement units within one system of units.",
+      "prompt_guide": "Which is larger: 1 kg or 1 g?"
+    },
+    {
+      "id": "KY.4.MD.2",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Use the four operations to solve word problems involving distances, intervals of time, liquid volumes, masses of objects and money.",
+      "prompt_guide": "Solve a word problem involving elapsed time."
+    },
+    {
+      "id": "KY.4.MD.3",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Apply the area and perimeter formulas for rectangles.",
+      "prompt_guide": "Find the perimeter of a rectangle with width 5 and length 8."
+    },
+    {
+      "id": "KY.4.MD.4",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Use dot plots to analyze data to a statistical question.",
+      "prompt_guide": "Create a question about a given dot plot."
+    },
+    {
+      "id": "KY.4.MD.5",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Recognize angles as geometric shapes and understand concepts of angle measurement.",
+      "prompt_guide": "Define an angle."
+    },
+    {
+      "id": "KY.4.MD.6",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Measure angles in whole-number degrees using a protractor.",
+      "prompt_guide": "Draw an angle and ask for its measurement in degrees."
+    },
+    {
+      "id": "KY.4.MD.7",
+      "grade": "4",
+      "domain": "Measurement and Data",
+      "description": "Recognize angle measure as additive.",
+      "prompt_guide": "If an angle is split into two parts of 30 and 40 degrees, what is the total angle?"
+    },
+    {
+      "id": "KY.4.G.1",
+      "grade": "4",
+      "domain": "Geometry",
+      "description": "Draw points, lines, line segments, rays, angles (right, acute, obtuse) and perpendicular and parallel lines.",
+      "prompt_guide": "Draw a set of parallel lines."
+    },
+    {
+      "id": "KY.4.G.2",
+      "grade": "4",
+      "domain": "Geometry",
+      "description": "Classify two-dimensional figures based on the presence or absence of parallel or perpendicular lines.",
+      "prompt_guide": "Identify a right triangle."
+    },
+    {
+      "id": "KY.4.G.3",
+      "grade": "4",
+      "domain": "Geometry",
+      "description": "Identify lines of symmetry.",
+      "prompt_guide": "Draw a line of symmetry on a butterfly."
+    },
+    {
+      "id": "KY.5.OA.1",
+      "grade": "5",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Use parentheses, brackets or braces in numerical expressions and evaluate expressions.",
+      "prompt_guide": "Evaluate: 3 x (4 + 5)."
+    },
+    {
+      "id": "KY.5.OA.2",
+      "grade": "5",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Write simple expressions with numbers and interpret numerical expressions without evaluating them.",
+      "prompt_guide": "Write the expression for 'add 8 and 7, then multiply by 2'."
+    },
+    {
+      "id": "KY.5.OA.3",
+      "grade": "5",
+      "domain": "Operations and Algebraic Thinking",
+      "description": "Generate numerical patterns for situations (generate rules, use tables/ordered pairs/graphs).",
+      "prompt_guide": "Create a pattern where y is always double x."
+    },
+    {
+      "id": "KY.5.NBT.1",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Recognize that in a multi-digit number, a digit in one place represents 10 times as much as it represents in the place to its right.",
+      "prompt_guide": "Compare the value of the digit 7 in 700 and 70."
+    },
+    {
+      "id": "KY.5.NBT.2",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Multiply and divide by powers of 10.",
+      "prompt_guide": "Calculate 4.5 x 100."
+    },
+    {
+      "id": "KY.5.NBT.3",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Read, write and compare decimals to thousandths.",
+      "prompt_guide": "Compare 3.456 and 3.465."
+    },
+    {
+      "id": "KY.5.NBT.4",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Use place value understanding to round decimals to any place.",
+      "prompt_guide": "Round 4.567 to the nearest hundredth."
+    },
+    {
+      "id": "KY.5.NBT.5",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Fluently multiply multi-digit whole numbers using an algorithm.",
+      "prompt_guide": "Multiply 123 x 45."
+    },
+    {
+      "id": "KY.5.NBT.6",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Divide up to four-digit dividends by two-digit divisors.",
+      "prompt_guide": "Divide 1200 by 25."
+    },
+    {
+      "id": "KY.5.NBT.7",
+      "grade": "5",
+      "domain": "Number and Operations in Base Ten",
+      "description": "Operations with decimals to hundredths (add, subtract, multiply and divide).",
+      "prompt_guide": "Add 3.45 + 12.12."
+    },
+    {
+      "id": "KY.5.NF.1",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Efficiently add and subtract fractions with unlike denominators.",
+      "prompt_guide": "Add 1/3 + 1/4."
+    },
+    {
+      "id": "KY.5.NF.2",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Solve word problems involving addition and subtraction of fractions.",
+      "prompt_guide": "Create a word problem about cooking that requires adding fractions."
+    },
+    {
+      "id": "KY.5.NF.3",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Interpret a fraction as division of the numerator by the denominator.",
+      "prompt_guide": "Explain how 3/4 is the same as 3 divided by 4."
+    },
+    {
+      "id": "KY.5.NF.4",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Apply and extend previous understanding of multiplication to multiply a fraction or whole number by a fraction.",
+      "prompt_guide": "Multiply 2/3 x 4/5."
+    },
+    {
+      "id": "KY.5.NF.5",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Interpret multiplication as scaling (resizing).",
+      "prompt_guide": "Explain why multiplying by 1/2 makes a number smaller."
+    },
+    {
+      "id": "KY.5.NF.6",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Solve real world problems involving multiplication of fractions and mixed numbers.",
+      "prompt_guide": "Solve a word problem involving area with fractional side lengths."
+    },
+    {
+      "id": "KY.5.NF.7",
+      "grade": "5",
+      "domain": "Number and Operations-Fractions",
+      "description": "Apply and extend previous understandings of division to divide unit fractions by whole numbers and whole numbers by unit fractions.",
+      "prompt_guide": "Divide 1/2 by 3."
+    },
+    {
+      "id": "KY.5.MD.1",
+      "grade": "5",
+      "domain": "Measurement and Data",
+      "description": "Convert among different size measurement units within one system of units.",
+      "prompt_guide": "Convert 500 cm to meters."
+    },
+    {
+      "id": "KY.5.MD.2",
+      "grade": "5",
+      "domain": "Measurement and Data",
+      "description": "Identify and gather data for statistical questions focused on both categorical and numerical data.",
+      "prompt_guide": "Create a line plot from given data."
+    },
+    {
+      "id": "KY.5.MD.3",
+      "grade": "5",
+      "domain": "Measurement and Data",
+      "description": "Recognize volume as an attribute of solid figures and understand concepts of volume measurement.",
+      "prompt_guide": "What is volume?"
+    },
+    {
+      "id": "KY.5.MD.4",
+      "grade": "5",
+      "domain": "Measurement and Data",
+      "description": "Measure volumes by counting unit cubic cm, cubic in, cubic ft.",
+      "prompt_guide": "Calculate volume by counting cubes."
+    },
+    {
+      "id": "KY.5.MD.5",
+      "grade": "5",
+      "domain": "Measurement and Data",
+      "description": "Relate volume to the operations of multiplication and addition and solve real world problems involving volume.",
+      "prompt_guide": "Find the volume of a rectangular prism."
+    },
+    {
+      "id": "KY.5.G.1",
+      "grade": "5",
+      "domain": "Geometry",
+      "description": "Use a pair perpendicular number lines, called axes, to define a coordinate system.",
+      "prompt_guide": "Plot (3, 4) on a coordinate plane."
+    },
+    {
+      "id": "KY.5.G.2",
+      "grade": "5",
+      "domain": "Geometry",
+      "description": "Represent real world and mathematical problems by graphing points in the first quadrant.",
+      "prompt_guide": "Graph the path of a character on a map grid."
+    },
+    {
+      "id": "KY.5.G.3",
+      "grade": "5",
+      "domain": "Geometry",
+      "description": "Understand that attributes belonging to a category of two dimensional figures also belong to all subcategories.",
+      "prompt_guide": "Why is a square also a rectangle?"
+    },
+    {
+      "id": "KY.5.G.4",
+      "grade": "5",
+      "domain": "Geometry",
+      "description": "Classify two-dimensional figures in a hierarchy based on properties.",
+      "prompt_guide": "Classify quadrilaterals based on their properties."
+    },
+    {
+      "id": "KY.6.RP.1",
+      "grade": "6",
+      "domain": "Ratios and Proportional Relationships",
+      "description": "Understand the concept of a ratio and use ratio language to describe a ratio relationship between two quantities.",
+      "prompt_guide": "Write the ratio of apples to oranges if there are 3 apples and 2 oranges."
+    },
+    {
+      "id": "KY.6.RP.2",
+      "grade": "6",
+      "domain": "Ratios and Proportional Relationships",
+      "description": "Understand the concept of a unit rate a/b associated with a ratio a:b.",
+      "prompt_guide": "If a car travels 100 miles in 2 hours, what is the unit rate per hour?"
+    },
+    {
+      "id": "KY.6.RP.3",
+      "grade": "6",
+      "domain": "Ratios and Proportional Relationships",
+      "description": "Use ratio and rate reasoning to solve real-world and mathematical problems.",
+      "prompt_guide": "Solve a problem about discounts or unit pricing."
+    },
+    {
+      "id": "KY.6.NS.1",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Interpret and compute quotients of fractions and solve word problems involving division of fractions by fractions.",
+      "prompt_guide": "Divide 3/4 by 1/2."
+    },
+    {
+      "id": "KY.6.NS.2",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Fluently divide multi-digit numbers using an algorithm.",
+      "prompt_guide": "Divide 12,345 by 15."
+    },
+    {
+      "id": "KY.6.NS.3",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Fluently add, subtract, multiply and divide multi-digit decimals using an algorithm for each operation.",
+      "prompt_guide": "Multiply 3.14 by 2.5."
+    },
+    {
+      "id": "KY.6.NS.4",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Use the distributive property to express a sum of two whole numbers 1-100 with a common factor.",
+      "prompt_guide": "Factor out the greatest common factor from 24 + 36."
+    },
+    {
+      "id": "KY.6.NS.5",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Understand that positive and negative numbers are used together to describe quantities having opposite directions or values.",
+      "prompt_guide": "Describe a temperature drop of 5 degrees using negative numbers."
+    },
+    {
+      "id": "KY.6.NS.6",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Understand a rational number as a point on the number line.",
+      "prompt_guide": "Plot -3 and 3 on a number line."
+    },
+    {
+      "id": "KY.6.NS.7",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Understand ordering and absolute value of rational numbers.",
+      "prompt_guide": "Find the absolute value of -7."
+    },
+    {
+      "id": "KY.6.NS.8",
+      "grade": "6",
+      "domain": "The Number System",
+      "description": "Solve real-world and mathematical problems by graphing points in all four quadrants of the coordinate plane.",
+      "prompt_guide": "Plot points (2, -3) and (-2, 3) on a graph."
+    },
+    {
+      "id": "KY.6.EE.1",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Write and evaluate numerical expressions involving whole number exponents.",
+      "prompt_guide": "Evaluate 2 to the power of 3."
+    },
+    {
+      "id": "KY.6.EE.2",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Write, read and evaluate expressions in which letters stand for numbers.",
+      "prompt_guide": "Evaluate 3x + 4 when x = 5."
+    },
+    {
+      "id": "KY.6.EE.3",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Apply the properties of operations to generate equivalent expressions.",
+      "prompt_guide": "Simplify 2(x + 3)."
+    },
+    {
+      "id": "KY.6.EE.4",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Identify when two expressions are equivalent when the two expressions name the same number regardless of which value is substituted.",
+      "prompt_guide": "Are 2x + 4 and 2(x + 2) equivalent? Why?"
+    },
+    {
+      "id": "KY.6.EE.5",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Understand solving an equation or inequality as a process of answering a question: which values make the equation true?",
+      "prompt_guide": "Find the value of x that makes 2x = 10 true."
+    },
+    {
+      "id": "KY.6.EE.6",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Use variables to represent numbers and write expressions when solving a real-world or mathematical problem.",
+      "prompt_guide": "Write an expression for '5 dollars more than the cost c'."
+    },
+    {
+      "id": "KY.6.EE.7",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Solve real-world and mathematical problems by writing and solving equations of the form x + p = q and px = q.",
+      "prompt_guide": "Solve for x: x + 5 = 12."
+    },
+    {
+      "id": "KY.6.EE.8",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Write an inequality of the form x > c or x < c to represent a constraint.",
+      "prompt_guide": "Write an inequality for 'you must be older than 12 to ride'."
+    },
+    {
+      "id": "KY.6.EE.9",
+      "grade": "6",
+      "domain": "Expressions and Equations",
+      "description": "Use variables to represent two quantities in a real-world problem that changes in relationship to one another.",
+      "prompt_guide": "Create a table showing the relationship between distance and time at constant speed."
+    },
+    {
+      "id": "KY.6.G.1",
+      "grade": "6",
+      "domain": "Geometry",
+      "description": "Find the area of right triangles, other triangles, special quadrilaterals and polygons.",
+      "prompt_guide": "Calculate the area of a triangle with base 4 and height 3."
+    },
+    {
+      "id": "KY.6.G.2",
+      "grade": "6",
+      "domain": "Geometry",
+      "description": "Find the volume of a right rectangular prism with rational number edge lengths.",
+      "prompt_guide": "Find the volume of a box with fractional dimensions."
+    },
+    {
+      "id": "KY.6.G.3",
+      "grade": "6",
+      "domain": "Geometry",
+      "description": "Draw polygons in the coordinate plane given coordinates for the vertices.",
+      "prompt_guide": "Plot the vertices of a square on a graph."
+    },
+    {
+      "id": "KY.6.G.4",
+      "grade": "6",
+      "domain": "Geometry",
+      "description": "Classify three-dimensional figures including cubes, prisms, pyramids, cones and spheres.",
+      "prompt_guide": "Identify the difference between a prism and a pyramid."
+    },
+    {
+      "id": "KY.6.SP.0",
+      "grade": "6",
+      "domain": "Statistics and Probability",
+      "description": "Apply the four-step investigative process for statistical reasoning.",
+      "prompt_guide": "Outline the steps to investigate a question like 'How tall are students in our class?'"
+    },
+    {
+      "id": "KY.6.SP.1",
+      "grade": "6",
+      "domain": "Statistics and Probability",
+      "description": "Recognize a statistical question as one that anticipates variability in the data.",
+      "prompt_guide": "Is 'How old am I?' a statistical question? Why or why not?"
+    },
+    {
+      "id": "KY.6.SP.2",
+      "grade": "6",
+      "domain": "Statistics and Probability",
+      "description": "Understand that a set of numerical data has a distribution described by its center, spread and overall shape.",
+      "prompt_guide": "Describe the shape of a given data distribution."
+    },
+    {
+      "id": "KY.6.SP.3",
+      "grade": "6",
+      "domain": "Statistics and Probability",
+      "description": "Recognize that a measure of center summarizes all values with a single number.",
+      "prompt_guide": "Calculate the mean of a data set."
+    },
+    {
+      "id": "KY.6.SP.4",
+      "grade": "6",
+      "domain": "Statistics and Probability",
+      "description": "Display the distribution of numerical data in plots on a number line, including dot plots, histograms and box plots.",
+      "prompt_guide": "Create a box plot for the given data."
+    },
+    {
+      "id": "KY.6.SP.5",
+      "grade": "6",
+      "domain": "Statistics and Probability",
+      "description": "Summarize numerical data sets in relation to their context.",
+      "prompt_guide": "Interpret the mean and median in the context of the data source."
+    }
+  ]
+}
