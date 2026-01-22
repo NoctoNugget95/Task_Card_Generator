@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- UNIVERSAL VIEWPORT INTEGRITY: Essential for touch responsiveness -->
+    <!-- UNIVERSAL VIEWPORT INTEGRITY -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KAS Math Task Card Generator</title>
 
@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <!-- HTML2Canvas for "Snapshot" Copying -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&family=Comic+Neue:wght@700&display=swap');
         
         :root {
+            /* EXACT 1/4 PAGE DIMENSIONS */
             --card-width: 4in;
             --card-height: 5in;
         }
@@ -24,68 +27,108 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
             -webkit-font-smoothing: antialiased;
-            /* Prevent pull-to-refresh on mobile which feels 'web-like' */
             overscroll-behavior-y: none;
         }
 
-        /* Responsive Grid: 1 column mobile, 2 columns tablet, 3 columns desktop */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
+        /* FIXED DIMENSION LAYOUT */
+        .card-container-flex {
+            display: flex;
+            flex-wrap: wrap;
             gap: 1.5rem;
-            padding-bottom: 4rem; /* Space for scrolling */
+            padding-bottom: 4rem;
+            justify-content: center;
+            width: 100%;
         }
 
-        @media (min-width: 768px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* THE CARD ITSELF */
+        .task-card {
+            width: var(--card-width);
+            height: var(--card-height);
+            flex-shrink: 0; 
+            flex-grow: 0;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        /* --- BACKGROUND DECORATION PATTERNS (Non-AI) --- */
+        .bg-pattern-grid {
+            background-image: 
+                linear-gradient(#e5e7eb 1px, transparent 1px),
+                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
         }
         
-        @media (min-width: 1280px) {
-            .card-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .bg-pattern-lined {
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 100% 2em;
+            background-position: 0 1.5em; /* Offset for header */
         }
 
-        /* PRINT STYLES - STRICT 4-UP LAYOUT */
-        @media print {
-            @page { 
-                margin: 0.25in; 
-                size: letter portrait;
-            }
-            body { 
-                background: white; 
-                -webkit-print-color-adjust: exact; 
-                print-color-adjust: exact;
-                overflow: visible !important;
-            }
-            .no-print { display: none !important; }
-            
-            /* Sidebar overlay must be hidden in print */
-            #sidebarOverlay { display: none !important; }
+        .bg-pattern-dots {
+            background-image: radial-gradient(#d1d5db 2px, transparent 2px);
+            background-size: 20px 20px;
+        }
 
-            /* The Container becomes a 2x2 Grid */
-            #cardContainer { 
+        .bg-pattern-geo {
+            background-color: #ffffff;
+            opacity: 1;
+            background-image:  linear-gradient(30deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6), linear-gradient(150deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6), linear-gradient(30deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6), linear-gradient(150deg, #f3f4f6 12%, transparent 12.5%, transparent 87%, #f3f4f6 87.5%, #f3f4f6), linear-gradient(60deg, #f3f4f6 25%, transparent 25.5%, transparent 75%, #f3f4f6 75%, #f3f4f6), linear-gradient(60deg, #f3f4f6 25%, transparent 25.5%, transparent 75%, #f3f4f6 75%, #f3f4f6);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+        }
+
+        .theme-btn.active, .pattern-btn.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+        }
+
+        /* Utility for copying */
+        .copy-feedback {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #10b981;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 50;
+        }
+        .copy-feedback.show { opacity: 1; }
+
+        /* PRINT STYLES */
+        @media print {
+            @page { margin: 0.25in; size: letter portrait; }
+            body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; overflow: visible !important; }
+            .no-print, #sidebarOverlay, .copy-btn { display: none !important; }
+            
+            .card-container-flex { 
                 display: grid !important; 
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
                 gap: 0.25in;
                 height: 100vh;
-                margin: 0;
-                padding: 0;
+                margin: 0; padding: 0;
+                width: auto;
             }
 
             .task-card {
-                break-inside: avoid;
                 border: 2px solid #000;
                 box-shadow: none !important;
-                width: 100%;
+                width: 100%; 
                 height: 4.75in !important; 
-                page-break-inside: avoid;
-                margin: 0;
+                break-inside: avoid;
+                page-break-inside: avoid; margin: 0;
             }
-            
             main { overflow: visible !important; }
         }
 
@@ -95,16 +138,12 @@
 <body class="text-gray-800 h-screen flex flex-col overflow-hidden">
 
     <!-- Header -->
-    <header class="bg-white border-b border-gray-200 p-4 flex justify-between items-center z-20 no-print shadow-sm relative">
+    <header class="bg-white border-b border-gray-200 p-4 flex justify-between items-center z-20 no-print shadow-sm relative shrink-0">
         <div class="flex items-center gap-3">
-            <!-- Mobile Menu Toggle -->
             <button onclick="App.ui.toggleSidebar()" class="md:hidden p-2 -ml-2 text-gray-600 hover:bg-gray-100 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
-            
-            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                KY
-            </div>
+            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">KY</div>
             <div>
                 <h1 class="font-bold text-lg leading-tight">KAS Math</h1>
                 <p class="text-[10px] text-gray-500 hidden sm:block">SDI & Bloom's Taxonomy</p>
@@ -121,17 +160,10 @@
         </div>
     </header>
 
-    <!-- Main Workspace -->
     <div class="flex-1 flex overflow-hidden relative">
-        
-        <!-- Mobile Overlay (Backdrop) -->
         <div id="sidebarOverlay" onclick="App.ui.toggleSidebar()" class="fixed inset-0 bg-black/50 z-10 hidden md:hidden transition-opacity opacity-0"></div>
 
-        <!-- Sidebar Controls -->
-        <!-- Responsive behavior: Fixed absolute on mobile, relative on desktop. Hidden off-canvas on mobile by default. -->
         <aside id="mainSidebar" class="absolute md:relative inset-y-0 left-0 w-80 bg-white border-r border-gray-200 flex flex-col z-20 shadow-xl md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out no-print h-full">
-            
-            <!-- Close Button (Mobile Only) -->
             <div class="md:hidden p-4 border-b border-gray-100 flex justify-end">
                 <button onclick="App.ui.toggleSidebar()" class="p-2 text-gray-500 hover:bg-gray-100 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -139,7 +171,7 @@
             </div>
 
             <div class="p-6 space-y-8 overflow-y-auto flex-1">
-                
+                <!-- Standard Selector -->
                 <div class="space-y-4">
                     <label class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-indigo-500"></span> 1. Select Standard
@@ -159,15 +191,44 @@
                     </select>
                 </div>
 
+                <!-- Appearance -->
                 <div class="space-y-4">
                     <label class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-pink-500"></span> 2. Customize
+                        <span class="w-2 h-2 rounded-full bg-pink-500"></span> 2. Appearance
                     </label>
-                    <div class="flex gap-3">
-                        <button onclick="App.ui.setTheme('indigo')" class="w-10 h-10 rounded-full bg-indigo-100 border-2 border-indigo-500 focus:scale-110"></button>
-                        <button onclick="App.ui.setTheme('emerald')" class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 focus:scale-110"></button>
-                        <button onclick="App.ui.setTheme('rose')" class="w-10 h-10 rounded-full bg-rose-100 border-2 border-rose-500 focus:scale-110"></button>
-                        <button onclick="App.ui.setTheme('amber')" class="w-10 h-10 rounded-full bg-amber-100 border-2 border-amber-500 focus:scale-110"></button>
+                    
+                    <!-- Color -->
+                    <div>
+                        <span class="text-[10px] text-gray-500 font-bold uppercase mb-2 block">Color Theme</span>
+                        <div class="flex gap-4">
+                            <button onclick="App.ui.setTheme('indigo')" data-theme="indigo" class="theme-btn active w-8 h-8 rounded-full bg-indigo-100 border-2 border-indigo-500 text-indigo-500 transition-all"></button>
+                            <button onclick="App.ui.setTheme('emerald')" data-theme="emerald" class="theme-btn w-8 h-8 rounded-full bg-emerald-100 border-2 border-emerald-500 text-emerald-500 transition-all"></button>
+                            <button onclick="App.ui.setTheme('rose')" data-theme="rose" class="theme-btn w-8 h-8 rounded-full bg-rose-100 border-2 border-rose-500 text-rose-500 transition-all"></button>
+                            <button onclick="App.ui.setTheme('amber')" data-theme="amber" class="theme-btn w-8 h-8 rounded-full bg-amber-100 border-2 border-amber-500 text-amber-500 transition-all"></button>
+                        </div>
+                    </div>
+
+                    <!-- Decoration (New) -->
+                    <div>
+                        <span class="text-[10px] text-gray-500 font-bold uppercase mb-2 block">Decoration</span>
+                        <div class="flex gap-2 flex-wrap">
+                            <button onclick="App.ui.setPattern('none')" data-pattern="none" class="pattern-btn active px-3 py-1 text-xs border border-gray-200 rounded-md hover:bg-gray-50">None</button>
+                            <button onclick="App.ui.setPattern('bg-pattern-grid')" data-pattern="bg-pattern-grid" class="pattern-btn px-3 py-1 text-xs border border-gray-200 rounded-md hover:bg-gray-50">Grid</button>
+                            <button onclick="App.ui.setPattern('bg-pattern-lined')" data-pattern="bg-pattern-lined" class="pattern-btn px-3 py-1 text-xs border border-gray-200 rounded-md hover:bg-gray-50">Lined</button>
+                            <button onclick="App.ui.setPattern('bg-pattern-dots')" data-pattern="bg-pattern-dots" class="pattern-btn px-3 py-1 text-xs border border-gray-200 rounded-md hover:bg-gray-50">Dots</button>
+                            <button onclick="App.ui.setPattern('bg-pattern-geo')" data-pattern="bg-pattern-geo" class="pattern-btn px-3 py-1 text-xs border border-gray-200 rounded-md hover:bg-gray-50">Geo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="space-y-4">
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span> 3. Quantity
+                    </label>
+                    <div class="flex items-center gap-3">
+                        <input type="number" id="cardCount" min="1" max="32" value="4" class="w-20 bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm text-center outline-none focus:ring-2 focus:ring-indigo-500 font-bold">
+                        <span class="text-sm text-gray-500">Cards (Max 32)</span>
                     </div>
                 </div>
 
@@ -180,13 +241,9 @@
             </div>
         </aside>
 
-        <!-- Preview Area -->
-        <section class="flex-1 bg-gray-50/50 p-4 md:p-8 overflow-y-auto w-full">
-            <div id="cardContainer" class="card-grid mx-auto max-w-6xl">
-                <!-- Cards injected here -->
-                
-                <!-- Empty State -->
-                <div class="col-span-full flex flex-col items-center justify-center h-96 text-gray-400 no-print">
+        <section class="flex-1 bg-gray-50/50 p-4 md:p-8 overflow-auto w-full">
+            <div id="cardContainer" class="card-container-flex mx-auto max-w-7xl">
+                <div class="col-span-full flex flex-col items-center justify-center h-96 text-gray-400 no-print w-full">
                     <p class="text-lg font-medium text-center">Select a standard to begin</p>
                     <p class="text-sm opacity-70">AI-generated task cards will appear here.</p>
                 </div>
@@ -194,7 +251,6 @@
         </section>
     </div>
 
-    <!-- Settings Modal -->
     <div id="settingsModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden items-center justify-center z-50 transition-opacity opacity-0 no-print px-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 transform scale-95 transition-transform">
             <h3 class="text-lg font-bold text-gray-800 mb-4">API Configuration</h3>
@@ -207,22 +263,22 @@
         </div>
     </div>
 
-    <!-- Logic -->
     <script>
         const App = {
             state: {
                 standards: [],
                 selectedStandard: null,
                 theme: 'indigo',
+                pattern: 'none',
                 apiKey: localStorage.getItem('kas_gemini_key') || '',
                 model: 'gemini-2.5-flash' 
             },
 
             themes: {
-                indigo: { bg: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-900' },
-                emerald: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-900' },
-                rose: { bg: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-900' },
-                amber: { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-900' }
+                indigo: { bg: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-900', btn: 'text-indigo-600' },
+                emerald: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-900', btn: 'text-emerald-600' },
+                rose: { bg: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-900', btn: 'text-rose-600' },
+                amber: { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-900', btn: 'text-amber-600' }
             },
 
             init: async () => {
@@ -265,14 +321,39 @@
                     }
                 },
 
+                copyCard: (btn) => {
+                    const card = btn.closest('article');
+                    // Hide buttons temporarily during snapshot
+                    card.querySelectorAll('button').forEach(b => b.style.opacity = '0');
+                    
+                    html2canvas(card, {
+                        scale: 2, // High resolution
+                        backgroundColor: '#ffffff'
+                    }).then(canvas => {
+                        card.querySelectorAll('button').forEach(b => b.style.opacity = '1');
+                        canvas.toBlob(blob => {
+                            navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
+                            .then(() => {
+                                const feedback = card.querySelector('.copy-feedback');
+                                feedback.classList.add('show');
+                                setTimeout(() => feedback.classList.remove('show'), 1500);
+                            })
+                            .catch(err => alert("Could not copy. Browser may block clipboard access."));
+                        });
+                    });
+                },
+
                 generateCards: async () => {
                     const stdId = document.getElementById('standardSelect').value;
-                    if (!stdId || !App.state.apiKey) return App.ui.toggleSettings();
+                    const countInput = document.getElementById('cardCount');
+                    
+                    let count = parseInt(countInput.value) || 4;
+                    if (count < 1) count = 1;
+                    if (count > 32) count = 32; 
+                    countInput.value = count;
 
-                    // Close sidebar on mobile after clicking generate
-                    if (window.innerWidth < 768) {
-                        App.ui.toggleSidebar();
-                    }
+                    if (!stdId || !App.state.apiKey) return App.ui.toggleSettings();
+                    if (window.innerWidth < 768) App.ui.toggleSidebar();
 
                     const standard = App.state.standards.find(s => s.id === stdId);
                     App.ui.setLoading(true);
@@ -281,13 +362,11 @@
                         const prompt = `
                             Act as a Special Education Math Expert.
                             Standard: ${standard.id} - ${standard.description}
-                            Task: Create 4 varied task cards based on Bloom's Taxonomy.
+                            Task: Create ${count} varied task cards.
                             
-                            REQUIREMENTS:
-                            1. Card 1 (Knowledge/Recall): Simple, direct question.
-                            2. Card 2 (Application): Apply skill to a basic scenario.
-                            3. Card 3 (Analysis - Visual): A problem relying on a visual model.
-                            4. Card 4 (Strategy - SDI): A problem asking "How" or part-part-whole.
+                            DISTRIBUTION STRATEGY:
+                            Distribute these ${count} questions across Bloom's Taxonomy levels (Recall, Application, Analysis, Strategy).
+                            Ensure a mix of question types (Direct, Word Problem, Visual Analysis, Part-Part-Whole).
                             
                             VISUALS:
                             If visual_type is "${standard.visual_type}", provide a simple SVG string in the "svg" field (viewBox 0 0 100 100).
@@ -296,7 +375,7 @@
                             OUTPUT FORMAT (JSON Array Only):
                             [
                               {
-                                "level": "Recall",
+                                "level": "Bloom Level",
                                 "problem": "Question text...",
                                 "svg": "<svg viewBox='0 0 100 100'>...</svg>", 
                                 "answer": "Answer"
@@ -321,7 +400,7 @@
                         App.ui.renderCards(standard, problems);
 
                     } catch (error) {
-                        alert("Generation failed. Check API key.");
+                        alert("Generation failed. Check API key or try fewer cards.");
                         console.error(error);
                     } finally {
                         App.ui.setLoading(false);
@@ -349,7 +428,6 @@
                 toggleSettings: () => {
                     const modal = document.getElementById('settingsModal');
                     const isHidden = modal.classList.contains('hidden');
-                    
                     if (isHidden) {
                         modal.classList.remove('hidden');
                         setTimeout(() => modal.classList.remove('opacity-0'), 10);
@@ -364,7 +442,30 @@
                     if (App.state.apiKey) document.getElementById('apiKeyInput').value = App.state.apiKey;
                 },
 
-                setTheme: (theme) => App.state.theme = theme,
+                setTheme: (theme) => {
+                    App.state.theme = theme;
+                    document.querySelectorAll('.theme-btn').forEach(btn => {
+                        if (btn.dataset.theme === theme) btn.classList.add('active');
+                        else btn.classList.remove('active');
+                    });
+                    // Re-render required to update existing cards
+                    const cards = document.querySelectorAll('.task-card');
+                    if (cards.length > 0) App.logic.generateCards(); // Or simpler redraw if data stored
+                },
+
+                setPattern: (pattern) => {
+                    App.state.pattern = pattern;
+                    document.querySelectorAll('.pattern-btn').forEach(btn => {
+                        if (btn.dataset.pattern === pattern) btn.classList.add('active', 'text-indigo-600', 'bg-indigo-50', 'border-indigo-200');
+                        else btn.classList.remove('active', 'text-indigo-600', 'bg-indigo-50', 'border-indigo-200');
+                    });
+                    // Apply to existing cards immediately
+                    document.querySelectorAll('.task-card').forEach(card => {
+                        // Remove all pattern classes first
+                        card.classList.remove('bg-pattern-grid', 'bg-pattern-lined', 'bg-pattern-dots', 'bg-pattern-geo');
+                        if (pattern !== 'none') card.classList.add(pattern);
+                    });
+                },
 
                 setLoading: (isLoading) => {
                     const btn = document.getElementById('generateBtn');
@@ -380,28 +481,35 @@
 
                     problems.forEach((p, index) => {
                         const card = document.createElement('article');
-                        card.className = `task-card bg-white rounded-xl shadow-lg border-t-4 ${t.border} flex flex-col h-full`;
+                        card.className = `task-card border-t-4 ${t.border} ${App.state.pattern !== 'none' ? App.state.pattern : ''}`;
                         card.style.borderColor = `var(--${App.state.theme}-600)`;
                         
-                        // Check if SVG exists, if not use a placeholder or empty div
                         const visualContent = p.svg 
                             ? `<div class="w-full h-32 mb-4 flex items-center justify-center text-indigo-600">${p.svg}</div>`
                             : '';
 
                         card.innerHTML = `
-                            <div class="px-4 py-2 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                            <div class="px-4 py-2 border-b border-gray-100 flex justify-between items-center bg-gray-50/90 backdrop-blur-sm">
                                 <span class="text-[10px] font-bold text-gray-500 uppercase">${standard.id} • ${p.level}</span>
                                 <span class="text-[10px] font-mono text-gray-400">#${index + 1}</span>
                             </div>
-                            <div class="p-6 flex-1 flex flex-col items-center justify-center text-center">
+                            <div class="p-6 flex-1 flex flex-col items-center justify-center text-center overflow-hidden relative">
+                                <div class="copy-feedback text-sm bg-white/95 backdrop-blur shadow-sm rounded-lg px-4 py-2 border border-green-200">
+                                    <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Copied Image!
+                                </div>
                                 ${visualContent}
                                 <div class="math-content text-lg font-medium text-gray-800 leading-snug">
                                     ${p.problem}
                                 </div>
                             </div>
-                            <div class="px-4 py-2 bg-gray-50/50 border-t border-gray-100 text-[10px] text-gray-400 flex justify-between group relative hover:bg-white touch-manipulation">
+                            <div class="px-4 py-2 bg-gray-50/90 border-t border-gray-100 text-[10px] text-gray-400 flex justify-between items-center group">
                                 <span class="font-semibold">Answer Key</span>
-                                <span class="opacity-0 group-hover:opacity-100 group-active:opacity-100 font-bold ${t.text}">${p.answer}</span>
+                                <span class="opacity-0 group-hover:opacity-100 group-active:opacity-100 font-bold ${t.text} mr-auto ml-2">${p.answer}</span>
+                                
+                                <button onclick="App.logic.copyCard(this)" class="copy-btn p-1.5 hover:bg-white rounded-full transition text-gray-400 hover:text-indigo-600" title="Copy Card Image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                </button>
                             </div>
                         `;
 
